@@ -1,0 +1,56 @@
+EXERCICIOS DOM
+
+1 - ABOUT ME
+
+Utilizando este HTML:
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+  
+</head>
+<body>
+
+  <h1>About Me</h1>
+  
+  <ul>
+    <li>Nickname: <span id="nickname"></span>
+    <li>Favorites:  <span id="favorites"></span>
+    <li>Hometown: <span id="hometown"></span>
+   </ul>
+  
+ </body>
+</html>
+
+* Acrescenta uma tag script para escrever o código de JS
+* Mude (via JS) a formatação geral da pagina (body), alterando por exemplo Font, cor de fundo, tamanho de texto, etc...
+* Preencha os conteúdos das tag’s “span"
+* Itere por cada elemento da UL, e aplique um estilo de formatação á sua escolha
+* Crie uma nova tag “img” acrescente uma imagem sua antes da lista.
+
+
+
+
+2 - REGISTO DE LIVROS:
+
+* Crie uma Array de Objectos (mínimo 4), onde cada objecto irá descrever um livro com as seguintes propriedades: title (string), author (string), alreadyRead (boolean)
+* Iterar por todos os livros e apresentar na consola todos os livros dentro deste formato: “The Hobbit by J. R. R. Tolkien”
+* Acrescente uma estrutura de decisão de forma a que se o livro já tiver sido lido, apresente: ‘Já leu "The Hobbit" by J.R.R. Tolkien’
+
+
+Via Javascript:
+* Criar uma pagina Web, com um H1 formatado a sua escolha e texto: “A minha Lista de Livros”
+* Utilizando a Array de livros anteriormente criada, itere pela array e mostre o resultado na pagina web, ou seja, por exemplo coloque um livro em cada paragrafo da pagina.
+* Substitua a apresentação dos livros numa UL e cada livro num LI
+* Acrescente a cada livro uma imagem, e mostre a mesma na pagina
+* Altere a apresentação de cada um dos livros de acordo com a variável que define que já está lido ou não.
+
+
+let livros = [
+        {title:'livro 1', author:'zé ninguem', alreadyRead: true, image:'wa-logotipo-site.jpg '},
+        {title:'livro 2', author:'zé ninguem1', alreadyRead: false, image:'wa-logotipo-site.jpg '},
+        {title:'livro 3', author:'zé ninguem2', alreadyRead: true, image:'wa-logotipo-site.jpg '},
+        {title:'livro 4', author:'zé ninguem3', alreadyRead: false, image:'wa-logotipo-site.jpg '},
+];
+

@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+body {
+  background-color: rgb(214, 206, 206);
+}
+
+h1.header {
+  text-align: center;
+  margin: 15px;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-left: 77px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: monospace;
+}
+
+/* ~~~~~~~~~~~~~~ */
+
+.submitDiv {
+  padding-top: 5px;
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+  background-color: rgb(156, 154, 154);
+}
+
+input {
+  border: 1px solid black;
+  width: 10rem;
+  margin: 5px 0 5px 0;
+  overflow-y: hidden;
+}
+
+label {
+  position: relative;
+  top: 9px;
+  overflow-y: hidden;
+  font-size: 1.4rem;
+}
+
+form div {
+  height: 48px;
+}
+
+button {
+  margin-top: 4px;
+  padding: 0 7px 0 7px;
+  font-size: 1.2rem;
+}
+
+.checkbox {
+  position: relative;
+  left: -70px;
+  height: 1.2rem;
+}
+/* ~~~~~~~~~~~~~~ */
+.searchDiv {
+  min-height: 6vh;
+  min-height: 6vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: rgb(214, 206, 206);
+  padding-left: 77px;
+}
+
+/* ~~~~~~~~~~~~~~ */
+
+section.grid {
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  column-gap: 10px;
+  gap: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 7px 5px 13px 5px;
+  background-color: white;
+  height: fit-content;
+}
+
+section::-webkit-scrollbar {
+  width: 13px;
+}
+
+section::-webkit-scrollbar-track {
+  background-color: rgb(214, 206, 206);
+}
+
+section::-webkit-scrollbar-thumb {
+  background-color: grey;
+}
+
+/* ~~~~~~~~~~~~~~ */
+
+.popup {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(100, 98, 98, 0.356);
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
