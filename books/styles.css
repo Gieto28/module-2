@@ -29,6 +29,22 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~ */
+.alert {
+  /* position: absolute; */
+  margin-top: 20px;
+  max-width: 40rem;
+  text-align: center;
+  color: rgb(182, 30, 30);
+  font-weight: bolder;
+  border: 3px solid rgb(163, 27, 27);
+  background-color: rgb(175, 175, 175);
+}
+
+.hideAlert {
+  display: none;
+}
+
+/* ~~~~~~~~~~~~~~ */
 
 .submitDiv {
   padding-top: 5px;

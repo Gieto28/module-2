@@ -17,6 +17,9 @@ function inIt() {
     let popup = document.querySelector('#popup');
     let bigImg = document.querySelector('#bigImg');
 
+    // alert popup
+    let alert = document.querySelector('.alert');
+
     // form
 
     let formCreateBook = document.querySelector('section.submitDiv form');
@@ -93,22 +96,23 @@ function inIt() {
 
         if (e.target.classList.contains('editBtn')) {
             
+            title.focus();
             let id = e.target.dataset.id;
 
-            console.log(`first log`, id);
-            console.log(`dataset:`, e.target.dataset.id);
-            
-
             for (let i = 0; i < livros.length; i++) {
-                console.log(`second log`, id);
-                console.log(`all books`, livros[i].title);
+
+                if (livros[i].id == id) {
+                    console.log(`specific log`, livros[i].title);
+                formTitle.value = livros[i].title;          
+                formAuthor.value = livros[i].author         
+                formIfRead.value = livros[i].alreadyRead  
+                formImage.value = livros[i].imageUrl          
+                formBigImage.value = livros[i].imageUrlGr
                 
-                if (livros.id === id) {
-                    console.log(`third`, livros[i].title);
+                deleteBook(id);
+
                 }
-
             }
-
 
         }
     }
@@ -166,9 +170,16 @@ function inIt() {
     }
 
     function createBook(e) {
-        
-        // console.log(new date().getTime());
 
+        if (formTitle.value === '' && formAuthor.value === '') {
+            alert.classList.remove('hideAlert');
+            e.preventDefault();
+            title.focus();
+
+        } else {
+        
+
+        alert.classList.add('hideAlert');
         let id = new Date().getTime();
 
         let livro = new Livro(
@@ -183,10 +194,14 @@ function inIt() {
         livros.push(livro)
         showBooks(livros)
 
-        console.log(livro);
         cleanForm();
 
         e.preventDefault();
+        }
+        
+        // console.log(new date().getTime());
+
+        
     }
 
     function cleanForm() {
