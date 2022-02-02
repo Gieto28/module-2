@@ -1,0 +1,3 @@
+Criar um projeto numa pasta com a estrutura de pastas e ficheiros da 1ª imagem, os ficheiros de javascript de cada "componente", deverão ser Modulos de ES6, quanto o HTML for interpretado pelo Browser, deverá aparecer na consola ou na pagina HTML(ou ambos) a indicação da inicialização de cada uma das componentes(Modulos) conforme indicações da  2ª imagem.
+
+Não é suposto ter qualquer tipo de layout...
