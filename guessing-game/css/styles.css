@@ -1,0 +1,26 @@
+body,
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+p {
+  font-weight: 100;
+}
+
+input {
+  max-width: 10rem;
+}
+
+.button {
+  max-width: 11.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
