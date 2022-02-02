@@ -29,6 +29,22 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~ */
+.alert {
+  /* position: absolute; */
+  margin-top: 20px;
+  max-width: 40rem;
+  text-align: center;
+  color: rgb(182, 30, 30);
+  font-weight: bolder;
+  border: 3px solid rgb(163, 27, 27);
+  background-color: rgb(175, 175, 175);
+}
+
+.hideAlert {
+  display: none;
+}
+
+/* ~~~~~~~~~~~~~~ */
 
 .submitDiv {
   padding-top: 5px;
@@ -127,10 +143,17 @@ section::-webkit-scrollbar-thumb {
   top: 0;
   left: 0;
   background-color: rgba(100, 98, 98, 0.356);
-}
-
-.show {
-  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.update {
+  background-color: rgba(87, 87, 87, 0.459);
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: flex;
 }

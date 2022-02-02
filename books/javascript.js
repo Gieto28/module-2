@@ -17,6 +17,9 @@ function inIt() {
     let popup = document.querySelector('#popup');
     let bigImg = document.querySelector('#bigImg');
 
+    // alert popup
+    let alert = document.querySelector('.alert');
+
     // form
 
     let formCreateBook = document.querySelector('section.submitDiv form');
@@ -27,7 +30,10 @@ function inIt() {
     let formImage = document.querySelector('#image');
     let formBigImage = document.querySelector('#bigImage');
 
+    // buttons
 
+    let submitBtn = document.querySelector('#submitButton')
+    let editBtn = document.querySelector('#editButton')
 
     // event listeners
     // filter event to filter by read or by not read
@@ -44,9 +50,10 @@ function inIt() {
 
     // form area to create a new book
     formCreateBook.addEventListener('submit', createBook, false)
+    editBtn.addEventListener('click', updateBook, false)
 
-
-
+    let bookToEdit;
+    let book;
 
 
 
@@ -93,28 +100,20 @@ function inIt() {
 
         if (e.target.classList.contains('editBtn')) {
             
-            let id = e.target.dataset.id;
-
-            console.log(`first log`, id);
-            console.log(`dataset:`, e.target.dataset.id);
+            title.focus();
+            // adding the dataset to the variable id
+            let id = e.target.dataset.id
+            book = e.target.parentElement.parentElement;
             
+            
+            book.classList.add('update')
 
-            for (let i = 0; i < livros.length; i++) {
-                console.log(`second log`, id);
-                console.log(`all books`, livros[i].title);
-                
-                if (livros.id === id) {
-                    console.log(`third`, livros[i].title);
-                }
-
-            }
-
+            updateForm(id);
 
         }
     }
 
-
-    // filterting books by read and not read
+    // filterting books by read 
     function filterReadBooks(checked) {
         if (checked) {
             let readBooks = livros.filter(livro => livro.alreadyRead === true);
@@ -124,7 +123,8 @@ function inIt() {
         }
         
     }
-
+    
+    // filtering books by not read
     function filterNotReadBooks(checked) {
         if (checked) {
             let notReadBooks = livros.filter (livro => livro.alreadyRead === false );
@@ -166,9 +166,16 @@ function inIt() {
     }
 
     function createBook(e) {
-        
-        // console.log(new date().getTime());
 
+        if (formTitle.value === '' && formAuthor.value === '') {
+            alert.classList.remove('hideAlert');
+            e.preventDefault();
+            title.focus();
+
+        } else {
+        
+
+        alert.classList.add('hideAlert');
         let id = new Date().getTime();
 
         let livro = new Livro(
@@ -180,30 +187,70 @@ function inIt() {
             formBigImage.value
         );
 
-        livros.push(livro)
-        showBooks(livros)
+        livros.push(livro);
+        showBooks(livros);
 
-        console.log(livro);
-        cleanForm();
+        // cleanForm();
+
+        formCreateBook.reset(); 
+        formTitle.focus();
 
         e.preventDefault();
+        }
+        
+        // console.log(new date().getTime());
+
+        
     }
 
-    function cleanForm() {
-        formTitle.value = '';
-        formAuthor.value = '';
-        formIfRead.checked = '';
-        formImage.value = '';
-        formBigImage.value = '';
+    function updateForm(id) {
+        bookToEdit = livros.find( l => l.id == id);
+
+        title.value = bookToEdit.title;
+        author.value = bookToEdit.author;
+        formIfRead.value = bookToEdit.formIfRead;
+        formImage.value = bookToEdit.imageUrl;
+        formBigImage.value = bookToEdit.imageUrlGr;
+        
+        submitBtn.classList.add('hide');
+        editBtn.classList.add('show');
+
+    }
+
+
+    function updateBook(e) {
+
+        let updatedBooksObject = livros.map ( livro => {
+            if (livro.id === bookToEdit.id) {
+                return {
+                    ...livro,
+                    title: formTitle.value,
+                    author: formAuthor.value,
+                    alreadyRead: formIfRead.checked,
+                    imageUrl: formImage.value,
+                    imageUrlGr: formBigImage.value
+                }
+            } else {
+                return livro;
+            }
+        })
+
+        livros = updatedBooksObject;
+
+        showBooks(livros);
+
+        formCreateBook.reset()
 
         formTitle.focus()
+
+        editBtn.classList.remove('show')
+        submitBtn.classList.remove('hide')
+
+        e.preventDefault()
+
+        book.classList.remove('update')
     }
 
-
-
-
-
-    
 
     // iterar pela array para criar visualmente uma lista coms os objetos
     function showBooks(arrayBooks) {
@@ -215,7 +262,7 @@ function inIt() {
             <article>
                 <h4>${livro.title}</h4>
                 <h4>${livro.author}</h4>
-                <img class="img" data-bigimg='images/${livro.imageUrlGr}' src="images/${livro.imageUrl}">
+                <img class="img" data-bigimg='${livro.imageUrlGr}' src="images/${livro.imageUrl}">
                 <p>already read: ${livro.alreadyRead ? '✓' : 'x'}</p>
                 <div>
                     <button class='deleteBtn' data-id=${livro.id}> Delete </button>
